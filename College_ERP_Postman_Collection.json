@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "c8a1e2f0-9012-4b21-890a-112233445566",
+		"name": "College ERP Management System REST API",
+		"description": "Complete Postman REST API Collection for College ERP Management System built with Spring Boot, Hibernate/JPA, and MySQL.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						}
+					}
+				},
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"sneha_kapoor\",\n  \"password\": \"password123\",\n  \"email\": \"sneha@student.college.edu\",\n  \"role\": \"STUDENT\",\n  \"name\": \"Sneha Kapoor\",\n  \"phone\": \"+91 9876543299\",\n  \"departmentOrCourse\": \"BCA\",\n  \"semester\": \"Semester 3\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						}
+					}
+				},
+				{
+					"name": "Get Current User Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/me?username=admin",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "me"],
+							"query": [{ "key": "username", "value": "admin" }]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Student Management",
+			"item": [
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students"]
+						}
+					}
+				},
+				{
+					"name": "Get Student by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": \"STU2026099\",\n  \"name\": \"Vikram Malhotra\",\n  \"email\": \"vikram@student.college.edu\",\n  \"phone\": \"+91 9988776655\",\n  \"dob\": \"2004-03-15\",\n  \"gender\": \"Male\",\n  \"course\": \"BCA\",\n  \"semester\": \"Semester 5\",\n  \"address\": \"77 Residency Road, Pune\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/students",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students"]
+						}
+					}
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": \"STU2026001\",\n  \"name\": \"Rahul Kumar\",\n  \"email\": \"rahul.k@student.college.edu\",\n  \"phone\": \"+91 9123456780\",\n  \"dob\": \"2004-05-14\",\n  \"gender\": \"Male\",\n  \"course\": \"BCA\",\n  \"semester\": \"Semester 6\",\n  \"address\": \"99 Indiranagar, Bengaluru\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/students/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/students/3",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "students", "3"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Faculty Management",
+			"item": [
+				{
+					"name": "Get All Faculty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/faculty",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculty"]
+						}
+					}
+				},
+				{
+					"name": "Get Faculty by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/faculty/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculty", "1"]
+						}
+					}
+				},
+				{
+					"name": "Create Faculty",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"facultyId\": \"FAC2026005\",\n  \"name\": \"Dr. Vikramaditya Rao\",\n  \"email\": \"rao@college.edu\",\n  \"department\": \"Computer Science & Engineering\",\n  \"phone\": \"+91 9876543290\",\n  \"designation\": \"Professor\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/faculty",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "faculty"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Management",
+			"item": [
+				{
+					"name": "Get All Courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/courses",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses"]
+						}
+					}
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": \"CRS105\",\n  \"courseCode\": \"CS305\",\n  \"courseName\": \"Cloud Computing & DevOps\",\n  \"department\": \"Computer Science & Engineering\",\n  \"semester\": \"Semester 5\",\n  \"credits\": 4,\n  \"facultyId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/courses",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses"]
+						}
+					}
+				},
+				{
+					"name": "Assign Faculty to Course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/courses/1/assign-faculty/2",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "courses", "1", "assign-faculty", "2"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Attendance Management",
+			"item": [
+				{
+					"name": "Get Attendance Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/attendance",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "attendance"]
+						}
+					}
+				},
+				{
+					"name": "Mark Batch Attendance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"courseId\": 1,\n  \"attendanceDate\": \"2026-09-17\",\n  \"studentAttendanceList\": [\n    { \"studentId\": 1, \"status\": \"PRESENT\", \"remarks\": \"On time\" },\n    { \"studentId\": 2, \"status\": \"PRESENT\", \"remarks\": \"On time\" },\n    { \"studentId\": 3, \"status\": \"ABSENT\", \"remarks\": \"Sick leave\" }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/attendance/batch",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "attendance", "batch"]
+						}
+					}
+				},
+				{
+					"name": "Get Student Attendance Summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/attendance/student/1/summary",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "attendance", "student", "1", "summary"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Academic Records",
+			"item": [
+				{
+					"name": "Get All Academic Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/academic-records",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "academic-records"]
+						}
+					}
+				},
+				{
+					"name": "Add Academic Score",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" }
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"studentId\": 1,\n  \"courseId\": 1,\n  \"examType\": \"FINAL_EXAM\",\n  \"marksObtained\": 92.0,\n  \"maxMarks\": 100.0,\n  \"remarks\": \"Outstanding performance\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/academic-records",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "academic-records"]
+						}
+					}
+				},
+				{
+					"name": "Get Student Transcript",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/academic-records/student/1/transcript",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "academic-records", "student", "1", "transcript"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Dashboard & Analytics",
+			"item": [
+				{
+					"name": "Get Dashboard Metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/dashboard/stats",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "dashboard", "stats"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
