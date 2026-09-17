@@ -5,6 +5,7 @@ com\college\erp\repository\FacultyRepository.class
 com\college\erp\entity\Role.class
 com\college\erp\entity\AcademicRecord.class
 com\college\erp\service\DashboardService.class
+com\college\erp\config\DatabaseConfig.class
 com\college\erp\entity\Student.class
 com\college\erp\dto\AttendanceDto.class
 com\college\erp\dto\CourseDto.class

@@ -7,21 +7,27 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: production
-      - key: DB_URL
+      - key: DB_HOST
         fromDatabase:
-          name: college-erp-db
-          property: connectionString
+          name: college-erp-mysql
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: college-erp-mysql
+          property: port
+      - key: DB_NAME
+        value: college_erp
       - key: DB_USERNAME
         fromDatabase:
-          name: college-erp-db
+          name: college-erp-mysql
           property: user
       - key: DB_PASSWORD
         fromDatabase:
-          name: college-erp-db
+          name: college-erp-mysql
           property: password
 
 databases:
-  - name: college-erp-db
+  - name: college-erp-mysql
     databaseName: college_erp
     user: admin
     plan: free
